@@ -1,0 +1,7 @@
+@import "define";
+@import "reset";
+//设置输入框提示信息的文字
+::-webkit-input-placeholder {
+  @extend %cc;
+  font-family: "Microsoft Yahei", Arial, "宋体";
+}
