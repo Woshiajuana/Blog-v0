@@ -1,11 +1,9 @@
 <template>
   <header class="header">
-    <XHeader></XHeader>
+    <x-header></x-header>
   </header>
 </template>
 <script>
-  import sample from './assets/js/header.js';
-  export default {
-  ...sample
-  }
+  import header from '../assets/js/header.js';
+  export default header
 </script>

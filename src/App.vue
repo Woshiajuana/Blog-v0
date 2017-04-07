@@ -15,10 +15,8 @@
 </template>
 
 <script>
-  import sample from './assets/js/app.js';
-  export default {
-  ...sample
-  }
+  import App from './assets/js/app.js';
+  export default App
 </script>
 <style lang="scss">
   @import "assets/scss/_common.scss";
