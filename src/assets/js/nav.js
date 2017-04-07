@@ -9,4 +9,3 @@ export default {
     TabbarItem
   }
 }
-console.log(111)

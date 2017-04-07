@@ -1,0 +1,23 @@
+@import "common";
+.weui-tabbar__item .icon-svg {
+  width: 27px;
+  height: 27px;
+  fill: #999;
+  margin-top: 1px;
+  &.icon-dir{
+    margin-top: 2px;
+    width: 25px;
+    height: 25px;
+  }
+  &.icon-don{
+    margin-top: 4px;
+    width: 23px;
+    height: 23px;
+  }
+}
+.weui-tabbar__item.weui-bar__item_on .icon-svg {
+  @extend %f699;
+}
+.weui-tabbar__item.weui-bar__item_on span {
+  @extend %c699;
+}
