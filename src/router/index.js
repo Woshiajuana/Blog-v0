@@ -6,25 +6,55 @@ import Router from 'vue-router'
 import Home from '../view/Home.vue'
 import Directory from '../view/Directory.vue'
 import Donate from '../view/Donate.vue'
-
 Vue.use(Router);
-
-export default new Router({
+let router = new Router({
   routes: [
     {
       path: '/',
       name: 'Home',
-      component: Home
+      component: Home,
+      meta: {
+        status: 1
+      }
     },
     {
       path: '/directory',
       name: 'Directory',
-      component: Directory
+      component: Directory,
+      meta: {
+        status: 2
+      }
     },
     {
       path: '/donate',
       name: 'Donate',
-      component: Donate
+      component: Donate,
+      meta: {
+        status: 3
+      }
     }
   ]
-})
+});
+router.beforeEach((to, from, next) => {
+  let _this = this;
+  let store = _this.a.app.$store;
+  if(!store){
+    setTimeout(function () {
+      store = _this.a.app.$store;
+      if(from.meta.status > to.meta.status){
+        store.commit('setAnimateName','vux-pop-out');
+      }else{
+        store.commit('setAnimateName','vux-pop-in');
+      }
+      next();
+    },300)
+  }else{
+    if(from.meta.status > to.meta.status){
+      store.commit('setAnimateName','vux-pop-out');
+    }else{
+      store.commit('setAnimateName','vux-pop-in');
+    }
+    next();
+  }
+});
+export default router

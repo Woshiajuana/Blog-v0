@@ -4,9 +4,9 @@
 import { Tabbar, TabbarItem } from 'vux';
 export default {
   name: 'nav',
-  data: function () {
-    return {
-      index1:2
+  computed: {
+    navActive () {
+      return this.$store.state.nav_index ;
     }
   },
   components: {
