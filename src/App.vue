@@ -1,5 +1,9 @@
 <template>
   <div id="app">
+    <!--加载动画-->
+    <!--<loading></loading>-->
+    <!--/加载动画-->
+
     <!--头部-->
     <my-header></my-header>
     <!--/头部-->
@@ -11,6 +15,10 @@
     <!--导航条-->
     <my-nav></my-nav>
     <!--/导航条-->
+
+    <!--svg-->
+    <svg-template></svg-template>
+    <!--/svg-->
   </div>
 </template>
 
@@ -19,5 +27,5 @@
   export default App
 </script>
 <style lang="scss">
-  @import "assets/scss/_common.scss";
+  @import "assets/scss/app.scss";
 </style>

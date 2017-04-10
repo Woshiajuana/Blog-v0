@@ -1,0 +1,19 @@
+@import "reset";
+@import "define";
+//设置输入框提示信息的文字
+::-webkit-input-placeholder {
+  @extend %cc;
+  font-family: "Microsoft Yahei", Arial, "宋体";
+}
+body{
+  background-color: #efeff4;
+}
+.container-wrap{
+  @extend %pa;
+  width: 100%;
+  top: 46px;
+  bottom: 54px;
+  left: 0;
+  overflow-y: auto;
+}
+

@@ -1,4 +1,4 @@
-@import "common";
+@import "define";
 .weui-tabbar__item .icon-svg {
   width: 27px;
   height: 27px;
@@ -19,5 +19,8 @@
   @extend %f699;
 }
 .weui-tabbar__item.weui-bar__item_on span {
-  @extend %c699;
+  @extend %cfff;
+  background-color: #669999;
+  padding: 0 4px;
+  border-radius: 7px;
 }
