@@ -6,6 +6,7 @@ import Router from 'vue-router'
 import Home from '../view/Home.vue'
 import Directory from '../view/Directory.vue'
 import Donate from '../view/Donate.vue'
+import Details from '../view/Details.vue'
 Vue.use(Router);
 let router = new Router({
   routes: [
@@ -31,6 +32,14 @@ let router = new Router({
       component: Donate,
       meta: {
         status: 3
+      }
+    },
+    {
+      path: '/details/:id',
+      name: 'details',
+      component: Details,
+      meta: {
+        status: 4
       }
     }
   ]

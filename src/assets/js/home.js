@@ -15,5 +15,6 @@ export default {
   created: function () {
     this.$store.commit('setTitle','HOME');
     this.$store.commit('setNavActiveIndex',1);
+    this.$store.commit('setLeftOpt',false);
   }
 }

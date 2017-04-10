@@ -1,11 +1,8 @@
 <template>
-  <div class="header">
-    <x-header
-      :left-options="leftOpt"
-      :title="title">
-    </x-header>
-    <span v-text="title"></span>
-  </div>
+  <x-header
+    :left-options="leftOpt"
+    :title="title">
+  </x-header>
 </template>
 <script>
   import header from '../assets/js/header.js';
@@ -29,7 +26,10 @@
     -webkit-animation: b .5s;
     animation: b .5s
   }
-
+  .left-arrow:before {
+    border: 1px solid #fff !important;
+    border-width: 1px 0 0 1px !important;
+  }
   @-webkit-keyframes a {
     0% {
       opacity: 0;

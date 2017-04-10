@@ -10,6 +10,7 @@ body{
 }
 .container-wrap{
   @extend %pa;
+  @extend %bsb;
   width: 100%;
   top: 46px;
   bottom: 54px;
