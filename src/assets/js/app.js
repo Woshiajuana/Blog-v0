@@ -9,6 +9,11 @@ import Loading from '../../components/Loading.vue'
 
 export default {
   name: 'app',
+  computed: {
+    animateName () {
+      return this.$store.state.animate_name;
+    }
+  },
   components:{
     MyHeader,
     MyNav,
