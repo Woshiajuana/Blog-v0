@@ -6,15 +6,11 @@ export default {
   name: 'header',
   data: function () {
     return {
-
-    }
-  },
-  computed: {
-    title () {
-      return this.$store.state.title;
-    },
-    leftOpt () {
-      return this.$store.state.left_opt;
+      left_opt: {
+        showBack: false,
+        backText: ''
+      },
+      title: 'HOME'
     }
   },
   components: {
