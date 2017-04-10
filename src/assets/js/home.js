@@ -11,5 +11,9 @@ export default {
   },
   components:{
     Loading
+  },
+  created: function () {
+    this.$store.commit('setTitle','HOME');
+    this.$store.commit('setNavActiveIndex',1);
   }
 }

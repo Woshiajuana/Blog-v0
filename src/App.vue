@@ -9,7 +9,9 @@
     <!--/头部-->
 
     <!--主体内容-->
-    <router-view></router-view>
+    <transition :name="animateName">
+      <router-view></router-view>
+    </transition>
     <!--/主体内容-->
 
     <!--导航条-->
