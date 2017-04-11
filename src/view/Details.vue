@@ -25,7 +25,7 @@
   .details-content{
     color: #666;
     line-height: 1.8;
-    font-size: 12px;
+    font-size: 13px;
     padding: 10px;
   }
   .details-content img{

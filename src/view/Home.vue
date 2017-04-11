@@ -14,11 +14,12 @@
               :pullup-config="pull_up_config"
               ref="homeScrollEvent">
       <div class="container-content">
-        <a v-for="(article_item,article_index) in articleArr" class="content-item" :href="'#/details/1'+article_item.article_id">
-          <span class="content-type" v-text="article_item.article_type"></span>
-          <h2 class="content-item-title" v-text="article_item.article_title"></h2>
-          <span class="content-time" v-text="article_item.article_time"></span>
-        </a>
+        <aritcle-item v-for="(article_item,article_index) in articleArr"
+          :article_url="'#/details/1'+article_item.article_id"
+          :article_type="article_item.article_type"
+          :article_title="article_item.article_title"
+          :article_time="article_item.article_time">
+        </aritcle-item>
       </div>
     </scroller>
   </div>

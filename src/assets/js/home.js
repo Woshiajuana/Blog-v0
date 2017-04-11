@@ -2,7 +2,8 @@
  * Created by Administrator on 2017/4/10.
  */
 import Loading from '../../components/Loading.vue'
-import { Scroller, Divider, Spinner, XButton, Group, Cell } from 'vux'
+import AritcleItem from '../../components/Article-Item.vue'
+import { Scroller } from 'vux'
 export default {
   name: 'home',
   data: function () {
@@ -36,6 +37,7 @@ export default {
   },
   components:{
     Loading,
+    AritcleItem,
     Scroller
   },
   methods: {
