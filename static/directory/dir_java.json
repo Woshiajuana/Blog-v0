@@ -1,0 +1,13 @@
+{
+  "status": 1,
+  "result":[
+    {
+      "title": "java入门1",
+      "url": "/details/1"
+    },
+    {
+      "title": "java入门2",
+      "url": "/details/2"
+    }
+  ]
+}

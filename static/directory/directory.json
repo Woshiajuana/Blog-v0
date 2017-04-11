@@ -1,0 +1,33 @@
+{
+  "status": 1,
+  "result":[
+    {
+      "title": "Java",
+      "url": "/directory/java"
+    },
+    {
+      "title": "Node.js",
+      "url": "/directory/node"
+    },
+    {
+      "title": "Javascript",
+      "url": "/directory/js"
+    },
+    {
+      "title": "Vue.js",
+      "url": "/directory/vue"
+    },
+    {
+      "title": "Angular.js",
+      "url": "/directory/angular"
+    },
+    {
+      "title": "Html5",
+      "url": "/directory/html"
+    },
+    {
+      "title": "Css3",
+      "url": "/directory/css"
+    }
+  ]
+}

@@ -6,7 +6,6 @@
     <!--/头部-->
 
     <!--主体内容-->
-
     <transition :name="animateName">
       <keep-alive>
         <router-view></router-view>

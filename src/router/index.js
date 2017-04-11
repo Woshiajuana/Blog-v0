@@ -7,6 +7,8 @@ import Home from '../view/Home.vue'
 import Directory from '../view/Directory.vue'
 import Donate from '../view/Donate.vue'
 import Details from '../view/Details.vue'
+import DirList from '../components/Director-List.vue'
+import DirListList from '../components/Director-List-List.vue'
 Vue.use(Router);
 let router = new Router({
   routes: [
@@ -24,7 +26,25 @@ let router = new Router({
       component: Directory,
       meta: {
         status: 2
-      }
+      },
+      children: [
+        {
+          path: '/',
+          name: 'dir_list',
+          component: DirList,
+          meta: {
+            status: 4
+          }
+        },
+        {
+          path: ':type',
+          name: 'dir_list_list',
+          component: DirListList,
+          meta: {
+            status: 5
+          }
+        }
+      ]
     },
     {
       path: '/donate',
@@ -39,7 +59,11 @@ let router = new Router({
       name: 'details',
       component: Details,
       meta: {
-        status: 4
+        status: 6
+      },
+      beforeEnter: (to, from, next) => {
+        //console.log(to,from,next)
+        next();
       }
     }
   ]

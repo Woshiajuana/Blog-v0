@@ -2,21 +2,13 @@
  * Created by Administrator on 2017/4/10.
  */
 import { Search } from 'vux'
-import { Cell , Group } from 'vux'
 export default {
   components: {
-    Search,
-    Cell,
-    Group
+    Search
   },
-  data: function () {
-    return {
-      showContent004: false
+  computed: {
+    animateName () {
+      return this.$store.state.animate_name;
     }
-  },
-  activated: function () {
-    this.$store.commit('setTitle','DIRECTORY');
-    this.$store.commit('setNavActiveIndex',2);
-    this.$store.commit('setLeftOpt',true);
   }
 }
