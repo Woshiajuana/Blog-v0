@@ -1,8 +1,5 @@
 <template>
   <div id="app">
-    <!--加载动画-->
-    <!--<loading></loading>-->
-    <!--/加载动画-->
 
     <!--头部-->
     <my-header></my-header>

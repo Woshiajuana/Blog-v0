@@ -1,7 +1,7 @@
 <template>
   <div class="home-wrap container-wrap">
-    <loading v-if="is_loading"></loading>
-    <scroller v-else
+    <loading v-show="is_loading"></loading>
+    <scroller v-show="!is_loading"
               lock-x
               height="-100"
               :scrollbarY="true"

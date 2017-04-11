@@ -1,11 +1,9 @@
 <template>
-
-    <div class="details-wrap container-wrap">
-      <scroller lock-x
-                height="-100"
-                :scrollbarY="true"
-                @on-scroll="onScroll"
-                ref="detailsScrollEvent">
+  <div class="details-wrap container-wrap">
+    <scroller lock-x
+              height="-100"
+              :scrollbarY="true"
+              ref="detailsScrollEvent">
       <div class="details-content">
         <p class="details-content-item">
           相信很多朋友初次接触到dcloud这边的产品，一般都是hbuilder和mui，所以很多朋友对于dcloud这边的产品链的认识也是各不相同。我相信对于很多新手来说，初次使用dcloud这边的产品的第一感觉一定是觉得这个东西很好却无从下手，然后被一些新的概念转得云里雾里，然后就开始吐槽官方文档，其实真的是文档不好吗？
@@ -21,8 +19,7 @@
         </p>
       </div>
     </scroller>
-    </div>
-
+  </div>
 </template>
 <style lang="scss">
   .details-content{
@@ -41,27 +38,6 @@
   }
 </style>
 <script>
-  import { Scroller } from 'vux'
-  export default {
-    components: {
-      Scroller
-    },
-    created: function () {},
-    methods: {
-      onScroll (pos) {
-        this.scrollTop = pos.top;
-      }
-    },
-    activated: function () {
-      var _this = this;
-      _this.$nextTick(() => {
-        _this.$refs.detailsScrollEvent.reset({
-          top: 0
-        });
-      });
-      this.$store.commit('setTitle','文章' + this.$route.params.id);
-      this.$store.commit('setNavActiveIndex',1);
-      this.$store.commit('setLeftOpt',true);
-    }
-  }
+  import details from '../assets/js/details.js'
+  export default details
 </script>

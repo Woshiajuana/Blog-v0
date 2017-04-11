@@ -5,6 +5,8 @@
 .content-item{
   @extend %db;
   @extend %pr;
+  @extend .animated;
+  @extend .fadeIn;
   padding: 10px;
   background-color: #fff;
   margin: 10px;
@@ -45,4 +47,32 @@
   @extend %c9;
   right: 10px;
   bottom: 10px;
+}
+.animated {
+  -webkit-animation-duration: .5s;
+  animation-duration: .5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
 }

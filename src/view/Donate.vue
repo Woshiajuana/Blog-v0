@@ -1,9 +1,13 @@
 <template>
   <div class="donate-wrap container-wrap">
-    <div class="donate-content">
-      <p class="donate-prompt">友情链接</p>
-      <img class="donate-img" src="../assets/images/wx.png" alt=""/>
-    </div>
+    <scroller lock-x
+              height="-100"
+              ref="donateScrollEvent">
+      <div class="donate-content">
+        <p class="donate-prompt">友情链接</p>
+        <img class="donate-img" src="../assets/images/wx.png" alt=""/>
+      </div>
+    </scroller>
   </div>
 </template>
 <script>

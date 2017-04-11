@@ -7,7 +7,7 @@ export default {
   name: 'home',
   data: function () {
     return {
-      is_loading: false,
+      is_loading: true,
       pull_down_config: {
         content: '下拉刷新',
         height: 60,
@@ -71,14 +71,19 @@ export default {
   },
   created: function () {
     var _this = this;
-    this.$store.dispatch('articleDataInit',{
-      _this: this,
-      callback: function(){
-        _this.$nextTick(() => {
-          _this.$refs.homeScrollEvent.reset()
-        })
-      }
-    });
+    setTimeout(function(){
+      _this.$store.dispatch('articleDataInit',{
+        _this: _this,
+        callback: function(){
+          _this.$nextTick(() => {
+            _this.is_loading = false;
+            setTimeout(function(){
+              _this.$refs.homeScrollEvent.reset()
+            },520)
+          })
+        }
+      });
+    },2000)
   },
   activated: function () {
     this.$store.commit('setTitle','HOME');

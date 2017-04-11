@@ -14,11 +14,6 @@ export default {
       showContent004: false
     }
   },
-  created: function () {
-    //this.$store.commit('setTitle','DIRECTORY');
-    //this.$store.commit('setNavActiveIndex',2);
-    //this.$store.commit('setLeftOpt',true);
-  },
   activated: function () {
     this.$store.commit('setTitle','DIRECTORY');
     this.$store.commit('setNavActiveIndex',2);
