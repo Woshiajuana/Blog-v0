@@ -8,7 +8,7 @@ export default {
   data: function () {
     return {
       is_loading: false,
-      article_arr: [],
+      //article_arr: this.$store.state.home.article_arr,
       pull_down_config: {
         content: '下拉刷新',
         height: 60,
@@ -31,7 +31,9 @@ export default {
     }
   },
   computed: {
-
+    articleArr () {
+      return this.$store.state.home.article_arr;
+    }
   },
   components:{
     Loading,
@@ -59,15 +61,22 @@ export default {
 }
 
 let ArticleController = {
+  index: 1,
   //初始化获取数据
   init: function (_this) {
+    //console.log(_this.article_arr)
+    //console.log(_this.$store.state.home.article_arr)
+    //if(_this.article_arr.length) return;
     _this.$http.get('../../static/home/home.json')
       .then(function (response) {
         if(response.data.status){
-          _this.article_arr = response.data.result;
-          _this.$nextTick(() => {
-            _this.$refs.scrollerEvent.reset()
-          })
+          _this.$store.commit('initArticleArr',response.data.result,function(){
+            _this.$nextTick(() => {
+              _this.$refs.scrollerEvent.reset()
+            })
+            console.log(_this.$store.state.home.article_arr)
+          });
+
         }
       })
       .catch(function (error) {
@@ -76,13 +85,14 @@ let ArticleController = {
   },
   //下拉刷新数据
   refresh: function (_this) {
+    this.index++;
     let art_obj = {
       "article_id": 11,
       "article_title": "专业译文需求，试试百度人工翻译专业译文需求，试试百度人工翻译",
-      "article_type": "vue",
+      "article_type": "vue" + this.index,
       "article_time": "2017-4-10"
     };
-    _this.article_arr.unshift(art_obj,art_obj,art_obj);
+    _this.$store.commit('refreshArticleArr',art_obj);
     _this.$nextTick(() => {
       _this.$refs.scrollerEvent.reset();
       _this.$refs.scrollerEvent.donePulldown();
@@ -90,13 +100,14 @@ let ArticleController = {
   },
   //加载数据
   load: function (_this) {
+    this.index++;
     let art_obj = {
       "article_id": 11,
       "article_title": "专业译文需求，试试百度人工翻译专业译文需求，试试百度人工翻译",
-      "article_type": "angularJs",
+      "article_type": "angularJs" + this.index,
       "article_time": "2017-4-10"
     };
-    _this.article_arr.push(art_obj,art_obj,art_obj);
+    _this.$store.commit('loadArticleArr',art_obj);
     _this.$nextTick(() => {
       _this.$refs.scrollerEvent.reset();
       _this.$refs.scrollerEvent.donePullup();
