@@ -15,7 +15,8 @@ let router = new Router({
       name: 'Home',
       component: Home,
       meta: {
-        status: 1
+        status: 1,
+        keep_alive: true
       }
     },
     {
@@ -23,7 +24,8 @@ let router = new Router({
       name: 'Directory',
       component: Directory,
       meta: {
-        status: 2
+        status: 2,
+        keep_alive: false
       }
     },
     {
@@ -31,7 +33,8 @@ let router = new Router({
       name: 'Donate',
       component: Donate,
       meta: {
-        status: 3
+        status: 3,
+        keep_alive: false
       }
     },
     {
@@ -39,7 +42,8 @@ let router = new Router({
       name: 'details',
       component: Details,
       meta: {
-        status: 4
+        status: 4,
+        keep_alive: false
       }
     }
   ]

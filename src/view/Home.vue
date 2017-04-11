@@ -4,6 +4,7 @@
     <scroller v-else
               lock-x
               height="-100"
+              :scrollbarY="true"
               @on-scroll="onScroll"
               :use-pulldown="true"
               :use-pullup="true"
@@ -11,9 +12,9 @@
               @on-pullup-loading="onPullUpLoading"
               :pulldown-config="pull_down_config"
               :pullup-config="pull_up_config"
-              ref="scrollerEvent">
+              ref="homeScrollEvent">
       <div class="container-content">
-        <a v-for="(article_item,article_index) in article_arr" class="content-item" :href="'#/details/1'+article_item.article_id">
+        <a v-for="(article_item,article_index) in articleArr" class="content-item" :href="'#/details/1'+article_item.article_id">
           <span class="content-type" v-text="article_item.article_type"></span>
           <h2 class="content-item-title" v-text="article_item.article_title"></h2>
           <span class="content-time" v-text="article_item.article_time"></span>
