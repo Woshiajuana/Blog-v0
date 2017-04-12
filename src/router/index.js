@@ -33,7 +33,7 @@ let router = new Router({
           name: 'dir_list',
           component: DirList,
           meta: {
-            status: 4
+            status: 3
           }
         },
         {
@@ -41,7 +41,7 @@ let router = new Router({
           name: 'dir_list_list',
           component: DirListList,
           meta: {
-            status: 5
+            status: 4
           }
         }
       ]
@@ -51,7 +51,7 @@ let router = new Router({
       name: 'Donate',
       component: Donate,
       meta: {
-        status: 3
+        status: 6
       }
     },
     {
@@ -59,7 +59,7 @@ let router = new Router({
       name: 'details',
       component: Details,
       meta: {
-        status: 6
+        status: 5
       },
       beforeEnter: (to, from, next) => {
         //console.log(to,from,next)
