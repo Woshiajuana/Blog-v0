@@ -46,45 +46,36 @@ export default {
     },
     onPullDownLoading () {
       //用户触发下拉刷新状态，监听该事件以获取加载新数据
-      var _this = this;
-      this.$store.dispatch('articleDataRefresh',{
-        _this: this,
-        callback: function(){
-          _this.$nextTick(() => {
-            _this.$refs.homeScrollEvent.reset();
-            _this.$refs.homeScrollEvent.donePulldown();
+      this.$store.dispatch('articleDataRefresh', () => {
+          this.$nextTick(() => {
+            this.$refs.homeScrollEvent.reset();
+            this.$refs.homeScrollEvent.donePulldown();
           });
         }
-      });
+      );
     },
     onPullUpLoading () {
       //用户触发上拉加载状态，监听该事件以加载新数据
-      var _this = this;
-      this.$store.dispatch('articleDataLoad',{
-        _this: this,
-        callback: function(){
-          _this.$nextTick(() => {
-            _this.$refs.homeScrollEvent.reset();
-            _this.$refs.homeScrollEvent.donePullup();
+      this.$store.dispatch('articleDataLoad', () => {
+          this.$nextTick(() => {
+            this.$refs.homeScrollEvent.reset();
+            this.$refs.homeScrollEvent.donePullup();
           })
         }
-      });
+      );
     }
   },
   created: function () {
-    var _this = this;
-    setTimeout(function(){
-      _this.$store.dispatch('articleDataInit',{
-        _this: _this,
-        callback: function(){
-          _this.$nextTick(() => {
-            _this.is_loading = false;
-            setTimeout(function(){
-              _this.$refs.homeScrollEvent.reset()
+    setTimeout(() => {
+      this.$store.dispatch('articleDataInit', () => {
+          this.$nextTick(() => {
+            this.is_loading = false;
+            setTimeout(() => {
+              this.$refs.homeScrollEvent.reset()
             },520)
           })
         }
-      });
+      );
     },2000)
   },
   activated: function () {

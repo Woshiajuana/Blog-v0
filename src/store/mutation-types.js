@@ -2,17 +2,19 @@
  * Created by Administrator on 2017/4/12.
  */
 
-/**首页添加Product产品*/
-const ADD_TO_PRODUCT = 'ADD_TO_PRODUCT';
+/**首页初始化Article文章列表*/
+const INIT_TO_ARTICLE_ARR = 'INIT_TO_ARTICLE_ARR';
+/**首页刷新Article文章列表*/
+const REFRESH_TO_ARTICLE_ARR = 'REFRESH_TO_ARTICLE_ARR';
+/**首页加载Article文章列表*/
+const ADD_TO_ARTICLE_ARR = 'ADD_TO_ARTICLE_ARR';
 
-/**首页添加Banner轮播图*/
-const ADD_TO_BANNER = 'ADD_TO_BANNER';
-
-/**首页添加Advert广告轮播图*/
-const ADD_TO_ADVERT = 'ADD_TO_ADVERT';
+/**目录页面初始化Directory目录*/
+const INIT_TO_DIRECTORY_ARR = 'INIT_TO_DIRECTORY_ARR';
 
 export default {
-    ADD_TO_PRODUCT,
-    ADD_TO_BANNER,
-    ADD_TO_ADVERT
+  INIT_TO_ARTICLE_ARR,
+  REFRESH_TO_ARTICLE_ARR,
+  ADD_TO_ARTICLE_ARR,
+  INIT_TO_DIRECTORY_ARR
 }
