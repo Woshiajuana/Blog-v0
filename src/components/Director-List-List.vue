@@ -21,7 +21,7 @@
     created: function () {
       var _this = this;
       this.$store.commit('setTitle',this.$route.params.type);
-      this.$http.get('../../static/directory/dir_'+ this.$route.params.type +'.json')
+      this.$http.get('http://www.owulia.com/ajuan/static/directory/dir_'+ this.$route.params.type +'.json')
         .then(function (response) {
           if(response.data.status){
             _this.directory_arr = response.data.result;

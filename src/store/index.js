@@ -4,6 +4,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import home from './module/home.js'
+import directory from './module/directory.js'
 
 Vue.use(Vuex);
 export default new Vuex.Store({
@@ -17,7 +18,8 @@ export default new Vuex.Store({
     nav_index: 1
   },
   modules: {
-    home: home
+    home,
+    directory
   },
   mutations: {
     setTitle (state,title) {

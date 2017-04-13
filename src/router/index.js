@@ -68,7 +68,7 @@ let router = new Router({
     }
   ]
 });
-router.beforeEach((to, from, next) => {
+router.beforeEach( (to, from, next) => {
   let _this = this;
   let store = _this.a.app.$store;
   if(!store){
