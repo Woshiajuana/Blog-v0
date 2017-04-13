@@ -1,7 +1,7 @@
 <template>
   <!--目录-->
   <div class="directory-wrap container-wrap">
-    <!--<search style="position: relative; top: 0;"></search>-->
+    <loading v-show="isLoading"></loading>
     <transition :name="animateName">
       <!--<keep-alive>-->
         <router-view></router-view>

@@ -2,7 +2,7 @@
  * Created by Administrator on 2017/4/10.
  */
 
-/**引入axios*/
+/**引入AppTool*/
 import AppTool from '../../assets/lib/app-tool.js';
 
 /**引入命名常量*/
@@ -26,7 +26,7 @@ const getters = {
  * 提交异步请求
  * */
 const actions = {
-  //初始化文章数据
+  /**初始化文章数据*/
   articleDataInit ( { commit },callback) {
     AppTool.HomeAjax.initArticle(function (result) {
       if(result.status){
@@ -37,7 +37,7 @@ const actions = {
       }
     });
   },
-  //刷新文章数据
+  /**刷新文章数据*/
   articleDataRefresh ( { state, commit }, callback ) {
     AppTool.HomeAjax.refreshArticle(function (result) {
       if(result.status){
@@ -48,7 +48,7 @@ const actions = {
       }
     });
   },
-  //加载文章数据
+  /**加载文章数据*/
   articleDataLoad ( { state, commit }, callback ) {
     AppTool.HomeAjax.loadArticle(function (result) {
       if(result.status){

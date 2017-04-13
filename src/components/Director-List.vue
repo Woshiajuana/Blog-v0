@@ -1,6 +1,6 @@
 <template>
   <div class="directory-content">
-    <cell v-for="(dir_item,dir_index) in directory_arr"
+    <cell v-for="(dir_item,dir_index) in directoryArr"
           :title="dir_item.title"
           :link="dir_item.url"
           is-link>
@@ -8,34 +8,6 @@
   </div>
 </template>
 <script>
-  import { Cell } from 'vux'
-  export default {
-    data: function () {
-      return {
-        directory_arr: []
-      }
-    },
-    components: {
-      Cell
-    },
-    created: function () {
-      var _this = this;
-      this.$store.commit('setTitle','DIRECTORY');
-      this.$http.get('http://www.owulia.com/ajuan/static/directory/directory.json')
-        .then(function (response) {
-          if(response.data.status){
-            _this.directory_arr = response.data.result;
-          }
-        })
-        .catch(function (error) {
-          console.log(error);
-        }
-      );
-    },
-    activated: function () {
-      this.$store.commit('setTitle','DIRECTORY');
-      this.$store.commit('setNavActiveIndex',2);
-      this.$store.commit('setLeftOpt',true);
-    }
-  }
+ import director_list from '../assets/js/directory_list.js';
+ export default director_list
 </script>

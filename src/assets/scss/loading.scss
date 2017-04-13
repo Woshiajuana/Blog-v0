@@ -1,4 +1,8 @@
 @import "define";
+.loading-wrap{
+  @extend %pr;
+  z-index: 9;
+}
 .loading-animate {
   @extend %pa;
   margin-top: 160px;

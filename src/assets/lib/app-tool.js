@@ -37,6 +37,19 @@ let AppTool = function (win) {
   };
 
   /**
+   * 目录数据请求
+   * */
+  AppTool.DirectoryAjax = {
+    /**请求目录列表数据*/
+    initDirectory: function ( data, success_callback, fail_callback) {
+      if(!data)
+        AppTool.ajax('/static/directory/directory.json',{},'get',success_callback,fail_callback);
+      else
+        AppTool.ajax('/static/directory/dir_' + data +'.json',{},'get',success_callback,fail_callback);
+    }
+  };
+
+  /**
    * 公用请求ajax的方式
    * */
   AppTool.ajax = function (path, data, http_method, success_callback, fail_callback) {
