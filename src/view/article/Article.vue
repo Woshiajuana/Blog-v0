@@ -43,16 +43,20 @@
     components: {
       Scroller
     },
+    created: function () {
+      this.$store.commit('SET_NAV_ACTIVE_INDEX',-2);
+    },
     activated: function () {
+      console.log(1)
       var _this = this;
       _this.$nextTick(() => {
         _this.$refs.detailsScrollEvent.reset({
           top: 0
         });
       });
-      this.$store.commit('setTitle','文章' + this.$route.params.id);
-      this.$store.commit('setNavActiveIndex',1);
-      this.$store.commit('setLeftOpt',true);
+      this.$store.commit('SET_TITLE','文章' + this.$route.params.id);
+      this.$store.commit('SET_NAV_ACTIVE_INDEX',-2);
+      this.$store.commit('SET_LEFT_OPT',true);
     }
   }
 </script>

@@ -79,8 +79,8 @@ export default {
     },2000)
   },
   activated: function () {
-    this.$store.commit('setTitle','HOME');
-    this.$store.commit('setNavActiveIndex',1);
-    this.$store.commit('setLeftOpt',false);
+    this.$store.commit('SET_TITLE','HOME');
+    this.$store.commit('SET_NAV_ACTIVE_INDEX',1);
+    this.$store.commit('SET_LEFT_OPT',false);
   }
 }

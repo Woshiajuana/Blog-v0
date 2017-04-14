@@ -11,12 +11,10 @@
   <!--/目录-->
 </template>
 <script>
-  import { Search } from 'vux'
   import Loading from '../../components/Loading.vue'
   export default {
     components: {
-      Search,
-        Loading
+      Loading
     },
     computed: {
       animateName () {
@@ -27,7 +25,6 @@
       }
     }
   }
-
 </script>
 <style lang="scss">
   @import "../../assets/scss/_define.scss";

@@ -85,6 +85,6 @@
 </style>
 <script>
   export default {
-    props:['article_url','article_type','article_title','article_time']
+    props: ['article_url','article_type','article_title','article_time']
   }
 </script>

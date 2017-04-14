@@ -13,14 +13,14 @@ export default {
   },
   created: function () {
     var type = this.$route.params.type;
-    this.$store.commit('setTitle',this.$route.params.type);
+    this.$store.commit('SET_TITLE',this.$route.params.type);
     this.$store.dispatch('directorySonDataInit',{ data:type ,callback:() => {
       console.log(2)
     }});
   },
   activated: function () {
-    this.$store.commit('setTitle',this.$route.params.type);
-    this.$store.commit('setNavActiveIndex',2);
-    this.$store.commit('setLeftOpt',true);
+    this.$store.commit('SET_TITLE',this.$route.params.type);
+    this.$store.commit('SET_NAV_ACTIVE_INDEX',3);
+    this.$store.commit('SET_LEFT_OPT',true);
   }
 }

@@ -1,13 +1,13 @@
 <!--导航条组件-->
 <template>
   <tabbar>
-    <tabbar-item v-bind:selected="navActive == 1" link="/">
+    <tabbar-item :selected="navActive == 1" link="/">
       <svg slot="icon" class="icon-svg icon-home">
         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-home"></use>
       </svg>
       <span slot="label">Home</span>
     </tabbar-item>
-    <tabbar-item :selected="navActive == 2" link="/directory">
+    <tabbar-item :selected="navActive == 2" link="/search">
       <svg slot="icon" class="icon-svg icon-search">
         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-search"></use>
       </svg>
@@ -31,14 +31,14 @@
   import { Tabbar, TabbarItem } from 'vux';
   export default {
     name: 'nav',
-      computed: {
+    computed: {
       navActive () {
         return this.$store.state.nav_index;
       }
     },
     components: {
       Tabbar,
-        TabbarItem
+      TabbarItem
     }
   }
 </script>

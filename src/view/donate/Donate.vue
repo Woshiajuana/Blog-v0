@@ -17,9 +17,9 @@
       Scroller
     },
     activated: function () {
-      this.$store.commit('setTitle','DONATE');
-      this.$store.commit('setNavActiveIndex',3);
-      this.$store.commit('setLeftOpt',true);
+      this.$store.commit('SET_TITLE','DONATE');
+      this.$store.commit('SET_NAV_ACTIVE_INDEX',3);
+      this.$store.commit('SET_LEFT_OPT',true);
     }
   }
 </script>
