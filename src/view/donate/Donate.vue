@@ -11,8 +11,17 @@
   </div>
 </template>
 <script>
-  import donate from '../../assets/js/donate.js'
-  export default donate
+  import { Scroller } from 'vux'
+  export default {
+    components: {
+      Scroller
+    },
+    activated: function () {
+      this.$store.commit('setTitle','DONATE');
+      this.$store.commit('setNavActiveIndex',3);
+      this.$store.commit('setLeftOpt',true);
+    }
+  }
 </script>
 <style lang="scss">
   @import "../../assets/scss/_define.scss";

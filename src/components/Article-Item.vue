@@ -25,7 +25,7 @@
     padding: 0 24px 0 10px;
     top: 0;
     left: 0;
-    background-color: #444;
+    background-color: #669999;
   &:after{
    @extend %pa;
      content: '';
@@ -38,8 +38,9 @@
    }
   }
   .content-item-title{
-  @extend %f14;
-  @extend %c3;
+  @extend %c6;
+  @extend %fwn;
+    font-size: 13px;
     margin: 20px 0;
     text-indent: 2em;
     line-height: 1.8;

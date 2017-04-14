@@ -15,7 +15,7 @@
               ref="homeScrollEvent">
       <div class="container-content">
         <aritcle-item v-for="(article_item,article_index) in articleArr"
-          :article_url="'#/details/1'+article_item.article_id"
+          :article_url="'#/'+article_item.article_url"
           :article_type="article_item.article_type"
           :article_title="article_item.article_title"
           :article_time="article_item.article_time">
@@ -25,7 +25,10 @@
   </div>
 </template>
 <style lang="scss">
-  @import "../../assets/scss/home.scss";
+  @import "../../assets/scss/_define.scss";
+  .container-content{
+    @extend %oh;
+  }
 </style>
 <script>
   import home from '../../assets/js/home.js'

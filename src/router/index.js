@@ -6,7 +6,7 @@ import Router from 'vue-router'                                   /**路由*/
 import Home from '../view/index/Home.vue'                         /**首页*/
 import Directory from '../view/directory/Directory.vue'           /**目录页*/
 import Donate from '../view/donate/Donate.vue'                    /**二维码捐赠页*/
-import Details from '../view/details/Details.vue'                 /**文章详情页*/
+import Article from '../view/article/Article.vue'                 /**文章详情页*/
 import DirList from '../components/Director-List.vue'             /**目录页子页面*/
 import DirListList from '../components/Director-List-List.vue'    /**目录页二级子页面*/
 Vue.use(Router);
@@ -61,9 +61,9 @@ let router = new Router({
     },
     /**文章详情页*/
     {
-      path: '/details/:id',
-      name: 'details',
-      component: Details,
+      path: '/article/:id',
+      name: 'article',
+      component: Article,
       meta: {
         status: 5
       }
