@@ -11,9 +11,9 @@
   <!--/目录-->
 </template>
 <script>
-  import directory from '../assets/js/directory.js'
+  import directory from '../../assets/js/directory.js'
   export default directory
 </script>
 <style lang="scss">
-  @import "../assets/scss/directory.scss";
+  @import "../../assets/scss/directory.scss";
 </style>

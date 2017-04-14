@@ -38,6 +38,6 @@
   }
 </style>
 <script>
-  import details from '../assets/js/details.js'
+  import details from '../../assets/js/details.js'
   export default details
 </script>

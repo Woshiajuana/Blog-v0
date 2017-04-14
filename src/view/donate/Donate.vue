@@ -5,17 +5,17 @@
               ref="donateScrollEvent">
       <div class="donate-content">
         <p class="donate-prompt">友情链接</p>
-        <img class="donate-img" src="../assets/images/wx.png" alt=""/>
+        <img class="donate-img" src="../../assets/images/wx.png" alt=""/>
       </div>
     </scroller>
   </div>
 </template>
 <script>
-  import donate from '../assets/js/donate.js'
+  import donate from '../../assets/js/donate.js'
   export default donate
 </script>
 <style lang="scss">
-  @import "../assets/scss/_define.scss";
+  @import "../../assets/scss/_define.scss";
   .donate-content{
     @extend %pa;
     @extend %tac;

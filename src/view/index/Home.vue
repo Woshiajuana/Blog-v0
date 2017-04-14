@@ -25,9 +25,9 @@
   </div>
 </template>
 <style lang="scss">
-  @import "../assets/scss/home.scss";
+  @import "../../assets/scss/home.scss";
 </style>
 <script>
-  import home from '../assets/js/home.js'
+  import home from '../../assets/js/home.js'
   export default home
 </script>

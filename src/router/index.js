@@ -2,16 +2,17 @@
 * 路由控制
 * */
 import Vue from 'vue'
-import Router from 'vue-router'
-import Home from '../view/Home.vue'
-import Directory from '../view/Directory.vue'
-import Donate from '../view/Donate.vue'
-import Details from '../view/Details.vue'
-import DirList from '../components/Director-List.vue'
-import DirListList from '../components/Director-List-List.vue'
+import Router from 'vue-router'                                   /**路由*/
+import Home from '../view/index/Home.vue'                         /**首页*/
+import Directory from '../view/directory/Directory.vue'           /**目录页*/
+import Donate from '../view/donate/Donate.vue'                    /**二维码捐赠页*/
+import Details from '../view/details/Details.vue'                 /**文章详情页*/
+import DirList from '../components/Director-List.vue'             /**目录页子页面*/
+import DirListList from '../components/Director-List-List.vue'    /**目录页二级子页面*/
 Vue.use(Router);
 let router = new Router({
   routes: [
+    /**首页*/
     {
       path: '/',
       name: 'Home',
@@ -20,6 +21,7 @@ let router = new Router({
         status: 1
       }
     },
+    /**目录页*/
     {
       path: '/directory',
       name: 'Directory',
@@ -28,6 +30,7 @@ let router = new Router({
         status: 2
       },
       children: [
+        /**目录子页*/
         {
           path: '/',
           name: 'dir_list',
@@ -36,6 +39,7 @@ let router = new Router({
             status: 3
           }
         },
+        /**目录二级子页面*/
         {
           path: ':type',
           name: 'dir_list_list',
@@ -46,6 +50,7 @@ let router = new Router({
         }
       ]
     },
+    /**二维码捐赠页*/
     {
       path: '/donate',
       name: 'Donate',
@@ -54,20 +59,18 @@ let router = new Router({
         status: 6
       }
     },
+    /**文章详情页*/
     {
       path: '/details/:id',
       name: 'details',
       component: Details,
       meta: {
         status: 5
-      },
-      beforeEnter: (to, from, next) => {
-        //console.log(to,from,next)
-        next();
       }
     }
   ]
 });
+/**设置路由之间的跳转动画*/
 router.beforeEach( (to, from, next) => {
   let _this = this;
   let store = _this.a.app.$store;

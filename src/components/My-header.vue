@@ -5,15 +5,29 @@
   </x-header>
 </template>
 <script>
-  import header from '../assets/js/header.js';
-  export default header
+  import { XHeader } from 'vux';
+  export default {
+    name: 'header',
+    computed: {
+      title () {
+        return this.$store.state.title;
+      },
+      leftOpt () {
+        return this.$store.state.left_opt;
+      }
+    },
+    components: {
+      XHeader
+    }
+  }
 </script>
 <style lang="scss">
+  @import "../assets/scss/_define.scss";
   #app .vux-header{
+    @extend %pa;
     width: 100%;
-    position: absolute;
-    left: 0px;
-    top: 0px;
+    left: 0;
+    top: 0;
     z-index: 100;
     background-color: #669999;
   }
@@ -21,7 +35,6 @@
     -webkit-animation: a .5s;
     animation: a .5s
   }
-
   .vux-header-fade-in-left-enter-active {
     -webkit-animation: b .5s;
     animation: b .5s
@@ -36,35 +49,30 @@
       -webkit-transform: translateX(150px);
       transform: translateX(150px)
     }
-
     to {
       opacity: 1;
       -webkit-transform: translateX(0);
       transform: translateX(0)
     }
   }
-
   @keyframes a {
     0% {
       opacity: 0;
       -webkit-transform: translateX(150px);
       transform: translateX(150px)
     }
-
     to {
       opacity: 1;
       -webkit-transform: translateX(0);
       transform: translateX(0)
     }
   }
-
   @-webkit-keyframes b {
     0% {
       opacity: 0;
       -webkit-transform: translateX(-150px);
       transform: translateX(-150px)
     }
-
     to {
       opacity: 1;
       -webkit-transform: translateX(0);
