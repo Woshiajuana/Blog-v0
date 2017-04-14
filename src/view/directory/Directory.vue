@@ -34,6 +34,38 @@
   .weui-search-bar__cancel-btn{
     color: #669999 !important;
   }
+  .weui-cell{
+    @extend .animated;
+    @extend .fadeIn;
+  }
+  .animated {
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+  @-webkit-keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  .fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+  }
   .directory-wrap{
   @extend %oh;
   }

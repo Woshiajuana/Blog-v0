@@ -1,6 +1,6 @@
 <template>
   <div class="directory-content">
-    <cell v-for="(dir_item,dir_index) in directoryArr"
+    <cell v-for="(dir_item,dir_index) in directory_con_arr"
           :title="dir_item.title"
           :link="dir_item.url"
           is-link>

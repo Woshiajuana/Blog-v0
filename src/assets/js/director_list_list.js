@@ -2,21 +2,35 @@
  * Created by Administrator on 2017/4/13.
  */
 import { Cell } from 'vux'
+import AppTool from '../../assets/lib/app-tool.js'
 export default {
-  computed: {
-    directoryArr () {
-      return this.$store.state.directory.directory_con_arr;
+  data: function () {
+    return {
+      directory_con_arr: null
     }
   },
   components: {
     Cell
   },
   created: function () {
-    var type = this.$route.params.type;
+    var directory_type = this.$route.params.type;
+    var directory_con_arr = AppTool.dataToSessionStorageOperate.achieve('directory_con_arr');
+    if(directory_type != AppTool.dataToSessionStorageOperate.achieve('directory_type')) {
+      this.$store.commit('SET_IS_LOADING',true);
+      AppTool.DirectoryAjax.initDirectory( directory_type ,(result) => {
+        if(result.status){
+          setTimeout(() => {
+            this.directory_con_arr = result.result;
+            AppTool.dataToSessionStorageOperate.save('directory_con_arr',result.result);
+            AppTool.dataToSessionStorageOperate.save('directory_type',directory_type);
+            this.$store.commit('SET_IS_LOADING',false);
+          },1000)
+        }
+      });
+    }else{
+      this.directory_con_arr = directory_con_arr;
+    }
     this.$store.commit('SET_TITLE',this.$route.params.type);
-    this.$store.dispatch('directorySonDataInit',{ data:type ,callback:() => {
-      console.log(2)
-    }});
   },
   activated: function () {
     this.$store.commit('SET_TITLE',this.$route.params.type);

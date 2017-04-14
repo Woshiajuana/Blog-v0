@@ -19,6 +19,32 @@ let AppTool = function (win) {
   }
 
   /**
+   * 操作数据到sessionstorage
+   * */
+  AppTool.dataToSessionStorageOperate = {
+    /**存储*/
+    save: function (data_name,data_value) {
+      if(data_name && data_value)
+        sessionStorage.setItem(data_name,JSON.stringify(data_value));
+    },
+    /**取出*/
+    achieve: function (data_name) {
+      var data_value = sessionStorage.getItem(data_name);
+      data_value && (data_value = JSON.parse(data_value));
+      return data_value;
+    },
+    /**删除*/
+    remove: function (data_name) {
+      if(data_name)
+        sessionStorage.removeItem(data_name);
+    },
+    /**清空*/
+    clear: function () {
+      sessionStorage.clear();
+    }
+  };
+
+  /**
    * 首页数据请求
    * */
   AppTool.HomeAjax = {
