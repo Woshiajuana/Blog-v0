@@ -18,16 +18,12 @@ const state = {
 /**
  * 数据过滤
  * */
-const getters = {
-
-};
+const getters = {};
 
 /**
  * 提交异步请求
  * */
-const actions = {
-
-};
+const actions = {};
 
 /**
  * 提交同步请求

@@ -45,7 +45,7 @@ export default {
       this.scrollTop = pos.top;
     },
     onPullDownLoading () {
-      //用户触发下拉刷新状态，监听该事件以获取加载新数据
+      /**用户触发下拉刷新状态，监听该事件以获取加载新数据*/
       this.$store.dispatch('articleDataRefresh', () => {
           this.$nextTick(() => {
             this.$refs.homeScrollEvent.reset();
@@ -55,7 +55,7 @@ export default {
       );
     },
     onPullUpLoading () {
-      //用户触发上拉加载状态，监听该事件以加载新数据
+      /**用户触发上拉加载状态，监听该事件以加载新数据*/
       this.$store.dispatch('articleDataLoad', () => {
           this.$nextTick(() => {
             this.$refs.homeScrollEvent.reset();

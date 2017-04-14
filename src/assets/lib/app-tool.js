@@ -8,8 +8,7 @@ let AppTool = function (win) {
    * 定义一系列变量
    * */
   var AppTool = {},
-    base_url = ''
-    //base_url = '//www.owulia.com/ajuan';
+    base_url = '//www.owulia.com/ajuan';
 
   /**
    * 根据是线上环境还是本地环境，选取不同的server_url的值
