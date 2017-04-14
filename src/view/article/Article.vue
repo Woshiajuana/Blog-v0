@@ -47,7 +47,6 @@
       this.$store.commit('SET_NAV_ACTIVE_INDEX',-2);
     },
     activated: function () {
-      console.log(1)
       var _this = this;
       _this.$nextTick(() => {
         _this.$refs.detailsScrollEvent.reset({
