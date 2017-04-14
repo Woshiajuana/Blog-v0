@@ -4,19 +4,22 @@
       <scroller lock-x
                 height="-100"
                 ref="searchScrollEvent">
-        <div class="donate-content">
-          <p class="donate-prompt">友情链接</p>
-          <img class="donate-img" src="../../assets/images/wx.png" alt=""/>
+        <div class="search-content">
+          <search position="absolute"
+                  auto-scroll-to-top
+                  top="0">
+          </search>
         </div>
       </scroller>
     </div>
   <!--/搜索文章页面-->
 </template>
 <script>
-  import { Scroller } from 'vux'
+  import { Scroller,Search } from 'vux'
   export default {
     components: {
-      Scroller
+      Scroller,
+      Search
     },
     activated: function () {
       this.$store.commit('SET_TITLE','SEARCH');
