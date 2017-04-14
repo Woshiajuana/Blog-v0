@@ -18,7 +18,7 @@
     },
     activated: function () {
       this.$store.commit('SET_TITLE','DONATE');
-      this.$store.commit('SET_NAV_ACTIVE_INDEX',3);
+      this.$store.commit('SET_NAV_ACTIVE_INDEX',4);
       this.$store.commit('SET_LEFT_OPT',true);
     }
   }
