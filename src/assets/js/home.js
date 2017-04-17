@@ -3,6 +3,8 @@
  */
 import Loading from '../../components/Loading.vue'
 import AritcleItem from '../../components/Article-Item.vue'
+// import types from '../../store/mutation-types';
+// import AppToll from  '../../assets/lib/app-tool';
 import { Scroller } from 'vux'
 export default {
   name: 'home',
@@ -36,9 +38,9 @@ export default {
     }
   },
   components:{
-    Loading,
     AritcleItem,
-    Scroller
+    Scroller,
+    Loading
   },
   methods: {
     onScroll (pos) {
@@ -64,6 +66,25 @@ export default {
         }
       );
     }
+  },
+  beforeRouteEnter (to, from, next) {
+    /**获取数据*/
+    // AppToll.HomeAjax.initArticle(({status,result}) => {
+    //   if(status == 1){
+    //     next( vm => {
+    //       vm.$store.commit(types.SET_IS_LOADING_STATE,false);
+    //       vm.$store.commit(types.REFRESH_TO_ARTICLE_ARR,{
+    //         article_arr: result,
+    //         callback: () =>{
+    //           setTimeout(() => {
+    //             vm.$refs.homeScrollEvent.reset();
+    //           },520)
+    //         }
+    //       });
+    //     });
+    //   }
+    // });
+    next();
   },
   created: function () {
     setTimeout(() => {

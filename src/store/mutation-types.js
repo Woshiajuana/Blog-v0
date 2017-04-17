@@ -2,6 +2,9 @@
  * Created by Administrator on 2017/4/12.
  */
 
+/**全局设置loading状态*/
+const SET_IS_LOADING_STATE = 'SET_IS_LOADING_STATE';
+
 /**全局设置标题*/
 const SET_TITLE = 'SET_TITLE';
 /**全局设置头部返回箭头的状态*/
@@ -22,6 +25,7 @@ const ADD_TO_ARTICLE_ARR = 'ADD_TO_ARTICLE_ARR';
 const SET_IS_LOADING = 'SET_IS_LOADING';
 
 export default {
+  SET_IS_LOADING_STATE,
   SET_TITLE,
   SET_LEFT_OPT,
   SET_NAV_ACTIVE_INDEX,

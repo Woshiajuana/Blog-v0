@@ -10,6 +10,7 @@ import Article from '../view/article/Article.vue'                 /**文章详�
 import Search from '../view/search/Search.vue'                    /**搜索页面*/
 import DirList from '../components/Director-List.vue'             /**目录页子页面*/
 import DirListList from '../components/Director-List-List.vue'    /**目录页二级子页面*/
+import Abnormal from '../view/abnormal/abnormal.vue'                       /**异常页面*/
 Vue.use(Router);
 let router = new Router({
   routes: [
@@ -76,6 +77,15 @@ let router = new Router({
       component: Article,
       meta: {
         status: 6
+      }
+    },
+    /**异常页面*/
+    {
+      path: '/abnormal',
+      name: 'abnormal',
+      component: Abnormal,
+      meta: {
+        status: 8
       }
     }
   ]

@@ -18,7 +18,8 @@ const state = {
   },
   title: 'HOME',
   animate_name: 'vux-pop-in',
-  nav_index: 1
+  nav_index: 1,
+  is_loading: true
 };
 
 /**
@@ -48,6 +49,10 @@ const mutations = {
   /**全局判断前进回退的动画*/
   [ types.SET_ANIMATE_NAME ] (state,animate_name) {
     state.animate_name = animate_name;
+  },
+  /**全局修改loading的状态*/
+  [ types.SET_IS_LOADING_STATE ] ( state,is_loading ) {
+    state.is_loading = is_loading;
   }
 };
 

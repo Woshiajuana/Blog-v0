@@ -44,12 +44,17 @@
       Scroller
     },
     created: function () {
+      console.log(this.$route)
       this.$store.commit('SET_NAV_ACTIVE_INDEX',-2);
     },
+    beforeRouteEnter (to, from, next) {
+      setTimeout(() => {
+        next()
+      },3000);
+    },
     activated: function () {
-      var _this = this;
-      _this.$nextTick(() => {
-        _this.$refs.detailsScrollEvent.reset({
+      this.$nextTick(() => {
+        this.$refs.detailsScrollEvent.reset({
           top: 0
         });
       });
