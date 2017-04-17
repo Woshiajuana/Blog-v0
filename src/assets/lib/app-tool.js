@@ -62,6 +62,17 @@ let AppTool = function (win) {
   };
 
   /**
+   * 文章页数据请求
+   * */
+  AppTool.ArticleAjax = {
+    /**根据文章ID请求文章内容*/
+    achieveArticle: function (article_id,success_callback,fail_callback)　{
+      if(article_id)
+        AppTool.ajax('/static/article/article_'+ article_id +'.json',{},'get',success_callback,fail_callback);
+    }
+  };
+
+  /**
    * 目录数据请求
    * */
   AppTool.DirectoryAjax = {
