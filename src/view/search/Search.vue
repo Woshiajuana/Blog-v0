@@ -22,7 +22,8 @@
   <!--/搜索文章页面-->
 </template>
 <script>
-  import { Scroller, Search} from 'vux'
+  import { Scroller, Search} from 'vux';
+  import AppTool from '../../assets/lib/app-tool'
   export default {
     data () {
       return {
@@ -45,7 +46,7 @@
         console.log('on focus')
       },
       onCancel () {
-        console.log('on cancel')
+        console.log(this.value)
       }
     },
     activated: function () {
@@ -54,14 +55,13 @@
       this.$store.commit('SET_LEFT_OPT',true);
     }
   }
-  function getResult (val) {
+  function getResult (keyword) {
     let rs = []
-    for (let i = 0; i < 8; i++) {
-      rs.push({
-        title: `${val} result: ${i + 1} `,
-        other: i
-      })
-    }
+    AppTool.ajax('http://localhost:8090', { query: keyword }, 'get', (data) => {
+//      dispatch('SET_RESULT', JSON.parse(data))
+      console.log(data)
+      console.log(keyword)
+    });
     return rs
   }
 </script>
