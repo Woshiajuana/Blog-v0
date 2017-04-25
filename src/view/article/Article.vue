@@ -55,6 +55,11 @@
               next( vm => {
                 vm.article_con = data[0].article_content;
                 vm.$store.commit('SET_TITLE',data[0].article_title);
+                  vm.$nextTick(() => {
+                      vm.$refs.detailsScrollEvent.reset({
+                          top: 0
+                      });
+                  });
               })
             }else{
                 console.log(msg)
@@ -66,6 +71,11 @@
           next( vm => {
             vm.article_con = AppTool.dataToSessionStorageOperate.achieve('article_con');
             vm.$store.commit('SET_TITLE',AppTool.dataToSessionStorageOperate.achieve('article_title'));
+              vm.$nextTick(() => {
+                  vm.$refs.detailsScrollEvent.reset({
+                      top: 0
+                  });
+              });
           })
         }
     },
