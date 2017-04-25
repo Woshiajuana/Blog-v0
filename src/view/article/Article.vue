@@ -4,8 +4,8 @@
               height="-100"
               :scrollbarY="true"
               ref="detailsScrollEvent">
-      <div class="details-content">
-        <p class="details-content-item" v-for="article_con in article_con_arr" v-text="article_con"></p>
+      <div class="details-content" v-html="article_con">
+
       </div>
     </scroller>
   </div>
@@ -16,15 +16,16 @@
     line-height: 1.8;
     font-size: 13px;
     padding: 10px;
+      p{
+          text-indent: 2em;
+          margin: 10px 0;
+      }
   }
   .details-content img{
     display: block;
     max-width: 100%;
   }
-  .details-content-item{
-    text-indent: 2em;
-    margin: 10px 0;
-  }
+
 </style>
 <script>
   import { Scroller } from 'vux';
@@ -36,7 +37,7 @@
     },
     data () {
         return {
-            article_con_arr: []
+            article_con: ''
         }
     },
     created: function () {
@@ -46,22 +47,24 @@
         /***/
         var article_id = AppTool.dataToSessionStorageOperate.achieve('article_id');
         if(article_id != to.params.id){
-          AppTool.ArticleAjax.achieveArticle(to.params.id,({status,result}) =>{
+          AppTool.ArticleAjax.achieveArticle(to.params.id,({status,data,msg}) =>{
             if(status == 1){
               AppTool.dataToSessionStorageOperate.save('article_id',to.params.id);
-              AppTool.dataToSessionStorageOperate.save('article_con_arr',result.article_con.split('/'));
-              AppTool.dataToSessionStorageOperate.save('article_title',result.article_title);
+              AppTool.dataToSessionStorageOperate.save('article_con',data[0].article_content);
+              AppTool.dataToSessionStorageOperate.save('article_title',data[0].article_title);
               next( vm => {
-                vm.article_con_arr = result.article_con.split('/');
-                vm.$store.commit('SET_TITLE',result.article_title);
+                vm.article_con = data[0].article_content;
+                vm.$store.commit('SET_TITLE',data[0].article_title);
               })
+            }else{
+                console.log(msg)
             }
           },() => {
               next();
           });
         }else{
           next( vm => {
-            vm.article_con_arr = AppTool.dataToSessionStorageOperate.achieve('article_con_arr');
+            vm.article_con = AppTool.dataToSessionStorageOperate.achieve('article_con');
             vm.$store.commit('SET_TITLE',AppTool.dataToSessionStorageOperate.achieve('article_title'));
           })
         }

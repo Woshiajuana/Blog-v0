@@ -14,7 +14,7 @@ let AppTool = function (win) {
    * 根据是线上环境还是本地环境，选取不同的server_url的值
    * */
   if(win.location.href.indexOf('localhost') > -1){
-    base_url = '';
+    base_url = 'http://localhost:8088';
   }
 
   /**
@@ -58,7 +58,11 @@ let AppTool = function (win) {
     /**加载文章列表数据*/
     loadArticle: function (success_callback, fail_callback) {
       AppTool.ajax('/static/home/home_load.json',{},'get',success_callback,fail_callback);
-    }
+    },
+      /**请求数据*/
+      fetchArticle: function (data,success_callback, fail_callback) {
+          AppTool.ajax('/ajuan/fetchArticle',data,'get',success_callback,fail_callback);
+      }
   };
 
   /**
@@ -68,7 +72,7 @@ let AppTool = function (win) {
     /**根据文章ID请求文章内容*/
     achieveArticle: function (article_id,success_callback,fail_callback)　{
       if(article_id)
-        AppTool.ajax('/static/article/article_'+ article_id +'.json',{},'get',success_callback,fail_callback);
+        AppTool.ajax('/ajuan/fetchDetail',{article_id},'get',success_callback,fail_callback);
     }
   };
 

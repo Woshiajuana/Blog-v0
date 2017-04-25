@@ -3,15 +3,14 @@
  */
 import Loading from '../../components/Loading.vue'
 import AritcleItem from '../../components/Article-Item.vue'
-// import types from '../../store/mutation-types';
-// import AppToll from  '../../assets/lib/app-tool';
+import types from '../../store/mutation-types';
 import { Scroller } from 'vux'
 export default {
   name: 'home',
   data: function () {
     return {
-      is_loading: true,
-      pull_down_config: {
+        is_loading: true,
+        pull_down_config: {
         content: '下拉刷新',
         height: 60,
         autoRefresh: false,
@@ -46,62 +45,43 @@ export default {
     onScroll (pos) {
       this.scrollTop = pos.top;
     },
-    onPullDownLoading () {
-      /**用户触发下拉刷新状态，监听该事件以获取加载新数据*/
-      this.$store.dispatch('articleDataRefresh', () => {
-          this.$nextTick(() => {
-            this.$refs.homeScrollEvent.reset();
-            this.$refs.homeScrollEvent.donePulldown();
-          });
-        }
-      );
-    },
-    onPullUpLoading () {
-      /**用户触发上拉加载状态，监听该事件以加载新数据*/
-      this.$store.dispatch('articleDataLoad', () => {
-          this.$nextTick(() => {
-            this.$refs.homeScrollEvent.reset();
-            this.$refs.homeScrollEvent.donePullup();
-          })
-        }
-      );
-    }
-  },
-  beforeRouteEnter (to, from, next) {
-    /**获取数据*/
-    // AppToll.HomeAjax.initArticle(({status,result}) => {
-    //   if(status == 1){
-    //     next( vm => {
-    //       vm.$store.commit(types.SET_IS_LOADING_STATE,false);
-    //       vm.$store.commit(types.REFRESH_TO_ARTICLE_ARR,{
-    //         article_arr: result,
-    //         callback: () =>{
-    //           setTimeout(() => {
-    //             vm.$refs.homeScrollEvent.reset();
-    //           },520)
-    //         }
-    //       });
-    //     });
-    //   }
-    // });
-    next();
+      onPullDownLoading () {
+          /**用户触发下拉刷新状态，监听该事件以获取加载新数据*/
+          this.$store.dispatch('articleDataInit', () => {
+                  this.$nextTick(() => {
+                      this.$refs.homeScrollEvent.reset();
+                      this.$refs.homeScrollEvent.donePulldown();
+                  });
+              }
+          );
+      },
+      onPullUpLoading () {
+          /**用户触发上拉加载状态，监听该事件以加载新数据*/
+          this.$store.dispatch('articleDataLoad', () => {
+                  this.$nextTick(() => {
+                      this.$refs.homeScrollEvent.reset();
+                      this.$refs.homeScrollEvent.donePullup();
+                  })
+              }
+          );
+      }
   },
   created: function () {
-    setTimeout(() => {
-      this.$store.dispatch('articleDataInit', () => {
-          this.$nextTick(() => {
-            this.is_loading = false;
-            setTimeout(() => {
-              this.$refs.homeScrollEvent.reset()
-            },520)
-          })
-        }
-      );
-    },2000)
+      setTimeout(() => {
+          this.$store.dispatch('articleDataInit', () => {
+                  this.$nextTick(() => {
+                      this.is_loading = false;
+                      setTimeout(() => {
+                          this.$refs.homeScrollEvent.reset()
+                      },520)
+                  })
+              }
+          );
+      },2000)
   },
   activated: function () {
-    this.$store.commit('SET_TITLE','HOME');
-    this.$store.commit('SET_NAV_ACTIVE_INDEX',1);
-    this.$store.commit('SET_LEFT_OPT',false);
+    this.$store.commit(types.SET_TITLE,'HOME');
+    this.$store.commit(types.SET_NAV_ACTIVE_INDEX,1);
+    this.$store.commit(types.SET_LEFT_OPT,false);
   }
 }

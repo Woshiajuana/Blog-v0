@@ -12,7 +12,9 @@ import types from '../mutation-types.js';
  * 数据存储
  * */
 const state = {
-  article_arr: []
+  article_arr: [],
+    page_num: 1,
+    page_size:10
 };
 
 /**
@@ -27,37 +29,34 @@ const getters = {
  * */
 const actions = {
   /**初始化文章数据*/
-  articleDataInit ( { commit },callback) {
-    AppTool.HomeAjax.initArticle(function (result) {
-      if(result.status){
-        commit(types.INIT_TO_ARTICLE_ARR,{
-          article_arr: result.result,
-          callback
-        });
-      }
-    });
-  },
-  /**刷新文章数据*/
-  articleDataRefresh ( { state, commit }, callback ) {
-    AppTool.HomeAjax.refreshArticle(function (result) {
-      if(result.status){
-        commit(types.REFRESH_TO_ARTICLE_ARR,{
-          article_arr: result.result,
-          callback
-        });
-      }
-    });
+  articleDataInit ( { state, commit },callback) {
+      state.page_num = 0;
+      AppTool.HomeAjax.fetchArticle({
+          page_num: state.page_num,
+          page_size: state.page_size
+      },(result) => {
+          if(result.status){
+              commit(types.INIT_TO_ARTICLE_ARR,{
+                  article_arr: result.data,
+                  callback
+              });
+          }
+      });
   },
   /**加载文章数据*/
   articleDataLoad ( { state, commit }, callback ) {
-    AppTool.HomeAjax.loadArticle(function (result) {
-      if(result.status){
-        commit(types.ADD_TO_ARTICLE_ARR,{
-          article_arr: result.result,
-          callback
-        });
-      }
-    });
+      state.page_num++;
+      AppTool.HomeAjax.fetchArticle({
+          page_num: state.page_num,
+          page_size: state.page_size
+      },(result) => {
+          if(result.status){
+              commit(types.ADD_TO_ARTICLE_ARR,{
+                  article_arr: result.data,
+                  callback
+              });
+          }
+      });
   }
 };
 
@@ -68,11 +67,6 @@ const mutations = {
   /**初始化首页文章列表数据*/
   [ types.INIT_TO_ARTICLE_ARR ] (state,{ article_arr , callback}) {
     state.article_arr = article_arr;
-    callback && callback();
-  },
-  /**刷新首页文章列表数据*/
-  [ types.REFRESH_TO_ARTICLE_ARR ] (state,{ article_arr , callback}) {
-    state.article_arr.unshift(...article_arr);
     callback && callback();
   },
   /**加载首页文章列表数据*/

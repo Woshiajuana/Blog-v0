@@ -15,7 +15,7 @@
               ref="homeScrollEvent">
       <div class="container-content">
         <aritcle-item v-for="(article_item,article_index) in articleArr"
-          :article_url="'#/'+article_item.article_url"
+          :article_url="'#/article/'+article_item._id"
           :article_type="article_item.article_type"
           :article_title="article_item.article_title"
           :article_time="article_item.article_time">
