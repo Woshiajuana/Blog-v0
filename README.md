@@ -1,6 +1,7 @@
 # personal-blog
 
 > A Vue.js project
+> 移动端个人博客，数据请求服务器端8088端口
 
 ## Build Setup
 
