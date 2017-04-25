@@ -1,8 +1,8 @@
 <template>
   <div class="directory-content">
     <cell v-for="(dir_item,dir_index) in directory_con_arr"
-          :title="dir_item.title"
-          :link="dir_item.url"
+          :title="dir_item.article_title"
+          :link="'/article/' + dir_item._id"
           is-link>
     </cell>
   </div>

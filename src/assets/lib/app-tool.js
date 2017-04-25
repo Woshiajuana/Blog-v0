@@ -82,10 +82,7 @@ let AppTool = function (win) {
   AppTool.DirectoryAjax = {
     /**请求目录列表数据*/
     initDirectory: function ( data, success_callback, fail_callback) {
-      if(!data)
-        AppTool.ajax('/static/directory/directory.json',{},'get',success_callback,fail_callback);
-      else
-        AppTool.ajax('/static/directory/dir_' + data +'.json',{},'get',success_callback,fail_callback);
+        AppTool.ajax('/ajuan/fetchArticle',data,'get',success_callback,fail_callback);
     }
   };
 

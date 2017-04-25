@@ -2,34 +2,45 @@
  * Created by Administrator on 2017/4/13.
  */
 import { Cell } from 'vux'
-import AppTool from '../../assets/lib/app-tool.js'
 export default {
   data: function () {
     return {
-      directory_arr: null
+      directory_arr: [
+          {
+              "title": "Java",
+              "url": "/directory/java"
+          },
+          {
+              "title": "Node.js",
+              "url": "/directory/node"
+          },
+          {
+              "title": "Javascript",
+              "url": "/directory/js"
+          },
+          {
+              "title": "Vue.js",
+              "url": "/directory/vue"
+          },
+          {
+              "title": "Angular.js",
+              "url": "/directory/angular"
+          },
+          {
+              "title": "Html5",
+              "url": "/directory/html"
+          },
+          {
+              "title": "Css3",
+              "url": "/directory/css"
+          }
+      ]
     }
   },
   components: {
     Cell
   },
   created: function () {
-    /**获取数据*/
-    var directory_arr = AppTool.dataToSessionStorageOperate.achieve('directory_arr');
-    if(!directory_arr){
-      this.$store.commit('SET_IS_LOADING',true);
-      AppTool.DirectoryAjax.initDirectory('' ,(result) => {
-        if(result.status){
-          setTimeout(() => {
-            this.directory_arr = result.result;
-            AppTool.dataToSessionStorageOperate.save('directory_arr',result.result);
-            this.$store.commit('SET_IS_LOADING',false);
-          },1000)
-        }
-      });
-    }else {
-      this.$store.commit('SET_IS_LOADING',false);
-      this.directory_arr = directory_arr;
-    }
     this.$store.commit('SET_TITLE','DIRECTORY');
   },
   activated: function () {

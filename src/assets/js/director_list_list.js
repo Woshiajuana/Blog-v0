@@ -17,11 +17,13 @@ export default {
     var directory_con_arr = AppTool.dataToSessionStorageOperate.achieve('directory_con_arr');
     if(directory_type != AppTool.dataToSessionStorageOperate.achieve('directory_type')) {
       this.$store.commit('SET_IS_LOADING',true);
-      AppTool.DirectoryAjax.initDirectory( directory_type ,(result) => {
+      AppTool.DirectoryAjax.initDirectory( {
+          tab: directory_type
+      } ,(result) => {
         if(result.status){
           setTimeout(() => {
-            this.directory_con_arr = result.result;
-            AppTool.dataToSessionStorageOperate.save('directory_con_arr',result.result);
+            this.directory_con_arr = result.data;
+            AppTool.dataToSessionStorageOperate.save('directory_con_arr',result.data);
             AppTool.dataToSessionStorageOperate.save('directory_type',directory_type);
             this.$store.commit('SET_IS_LOADING',false);
           },1000)
